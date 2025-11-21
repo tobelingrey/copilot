@@ -1,54 +1,311 @@
-<header>
-  <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2>
+<header class="header" {{ section.shopify_attributes }}>
+  <div class="header__container">
+    {%- comment -%} Logo {%- endcomment -%}
+    <div class="header__logo">
+      <a href="{{ routes.root_url }}" class="header__logo-link">
+        {%- if section.settings.logo -%}
+          <img
+            src="{{ section.settings.logo | image_url: width: 200 }}"
+            alt="{{ shop.name }}"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            loading="eager"
+          >
+        {%- else -%}
+          {%- comment -%} Fallback to SVG placeholder logo {%- endcomment -%}
+          <img src="{{ 'logo-placeholder.svg' | asset_url }}" alt="{{ shop.name }}" width="{{ section.settings.logo_width }}" height="auto">
+        {%- endif -%}
+      </a>
+    </div>
 
-  <div class="header__menu">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+    {%- comment -%} Mobile Menu Toggle {%- endcomment -%}
+    <button class="header__menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  <div class="header__icons">
-    {% if shop.customer_accounts_enabled %}
-      {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %}
+    {%- comment -%} Desktop Navigation {%- endcomment -%}
+    <nav class="header__nav" role="navigation">
+      <ul class="header__menu">
+        {%- comment -%} Home Link {%- endcomment -%}
+        <li class="header__menu-item">
+          <a href="{{ routes.root_url }}" class="header__menu-link">
+            Home
+          </a>
+        </li>
 
-    <a href="{{ routes.cart_url }}">
-      {% if cart.item_count > 0 %}
-        <sup>{{ cart.item_count }}</sup>
-      {% endif %}
+        {%- comment -%} Catalog with Dropdown (Placeholder) {%- endcomment -%}
+        <li class="header__menu-item">
+          <a href="{{ routes.collections_url }}" class="header__menu-link">
+            Catalog
+          </a>
+          <ul class="header__submenu">
+            <li class="header__submenu-item">
+              <a href="{{ routes.collections_url }}/clothing" class="header__submenu-link">
+                Clothing
+              </a>
+            </li>
+            <li class="header__submenu-item">
+              <a href="{{ routes.collections_url }}/accessories" class="header__submenu-link">
+                Accessories
+              </a>
+            </li>
+            <li class="header__submenu-item">
+              <a href="{{ routes.collections_url }}/shoes" class="header__submenu-link">
+                Shoes
+              </a>
+            </li>
+            <li class="header__submenu-item">
+              <a href="{{ routes.collections_url }}/sale" class="header__submenu-link">
+                Sale
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-      {{ 'icon-cart.svg' | inline_asset_content }}
-    </a>
+    {%- comment -%} Header Icons {%- endcomment -%}
+    <div class="header__icons">
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="header__icon" aria-label="Account">
+          {{ 'icon-account.svg' | inline_asset_content }}
+        </a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__cart" aria-label="Cart">
+        {%- if cart.item_count > 0 -%}
+          <span class="header__cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+        {{ 'icon-cart.svg' | inline_asset_content }}
+      </a>
+    </div>
   </div>
 </header>
 
 {% stylesheet %}
-  header {
-    height: 5rem;
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-background);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .header__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
   }
-  header a {
-    position: relative;
+
+  /* Logo */
+  .header__logo-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: var(--color-foreground);
   }
-  header a sup {
+
+  .header__shop-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .header__logo img {
+    display: block;
+  }
+
+  /* Mobile Menu Toggle */
+  .header__menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .header__menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--color-foreground);
+    transition: all 0.3s ease;
+  }
+
+  /* Navigation */
+  .header__nav {
+    flex: 1;
+  }
+
+  .header__menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start; /* Left aligned */
+  }
+
+  .header__menu-item {
+    position: relative;
+  }
+
+  .header__menu-link {
+    text-decoration: none;
+    color: var(--color-foreground);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    display: block;
+    transition: color 0.2s ease;
+  }
+
+  .header__menu-link:hover,
+  .header__menu-link.active {
+    color: var(--color-foreground);
+    opacity: 0.7;
+  }
+
+  /* Dropdown with delay for better hover experience */
+  .header__submenu {
     position: absolute;
-    left: 100%;
-    overflow: hidden;
-    max-width: var(--page-margin);
+    top: 100%;
+    left: 0;
+    background: var(--color-background);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0.5rem 0 0 0;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, visibility 0s 0.2s, transform 0.2s ease;
+    pointer-events: none;
   }
-  header svg {
-    width: 2rem;
+
+  /* Show dropdown on hover or when class is added */
+  .header__menu-item:hover .header__submenu,
+  .header__submenu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, visibility 0s, transform 0.2s ease;
+    pointer-events: all;
   }
-  header .header__menu,
-  header .header__icons {
+
+  .header__submenu-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--color-foreground);
+    transition: background 0.2s ease;
+  }
+
+  .header__submenu-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Icons */
+  .header__icons {
     display: flex;
     gap: 1rem;
+    align-items: center;
+  }
+
+  .header__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-foreground);
+    transition: opacity 0.2s ease;
+  }
+
+  .header__icon:hover {
+    opacity: 0.7;
+  }
+
+  .header__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header__cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--color-foreground);
+    color: var(--color-background);
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .header__container {
+      padding: 1rem;
+    }
+
+    .header__menu-toggle {
+      display: flex;
+      order: -1;
+    }
+
+    .header__nav {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      right: 0;
+      background: var(--color-background);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .header__nav.active {
+      max-height: 500px;
+    }
+
+    .header__menu {
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem;
+    }
+
+    .header__menu-link {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .header__submenu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      padding-left: 1rem;
+    }
+
+    .header__logo {
+      flex: 1;
+      text-align: center;
+    }
   }
 {% endstylesheet %}
 
@@ -57,10 +314,78 @@
   "name": "t:general.header",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
       "type": "link_list",
       "id": "menu",
-      "label": "t:labels.menu"
+      "label": "t:labels.menu",
+      "default": "main-menu"
     }
   ]
 }
 {% endschema %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const nav = document.querySelector('.header__nav');
+    
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', 
+          nav.classList.contains('active') ? 'true' : 'false'
+        );
+      });
+    }
+
+    // Dropdown menu with delay
+    const menuItems = document.querySelectorAll('.header__menu-item');
+    let closeTimeout;
+
+    menuItems.forEach(item => {
+      const submenu = item.querySelector('.header__submenu');
+      
+      if (submenu) {
+        // Show dropdown on hover
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimeout);
+          submenu.classList.add('is-open');
+        });
+
+        // Delay closing when mouse leaves
+        item.addEventListener('mouseleave', () => {
+          closeTimeout = setTimeout(() => {
+            submenu.classList.remove('is-open');
+          }, 300); // 300ms delay before closing
+        });
+
+        // Keep open when hovering over submenu itself
+        submenu.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimeout);
+          submenu.classList.add('is-open');
+        });
+
+        submenu.addEventListener('mouseleave', () => {
+          closeTimeout = setTimeout(() => {
+            submenu.classList.remove('is-open');
+          }, 300);
+        });
+      }
+    });
+  });
+{% endjavascript %}
