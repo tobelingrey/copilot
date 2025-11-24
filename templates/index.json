@@ -60,10 +60,19 @@
         "heading": "What We Do",
         "subheading": "Comprehensive Shopify solutions tailored to your business needs"
       }
+    },
+    "cta": {
+      "type": "cta",
+      "settings": {
+        "heading": "Ready to Grow Your Business?",
+        "text": "Let's discuss how we can help you build a Shopify store that drives results.",
+        "button_text": "Get in Touch"
+      }
     }
   },
   "order": [
     "hero",
-    "services"
+    "services",
+    "cta"
   ]
 }
