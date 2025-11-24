@@ -9,12 +9,17 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "We Build Shopify Stores That Convert",
+        "subheading": "Partner with experts who understand e-commerce. We create beautiful, high-performing Shopify stores that drive results.",
+        "cta_text": "Get Started",
+        "cta_link": "/pages/contact"
+      }
     }
   },
   "order": [
-    "main"
+    "hero"
   ]
 }
