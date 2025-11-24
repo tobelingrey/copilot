@@ -1,0 +1,230 @@
+{%- comment -%}
+  Services grid section with customizable service cards.
+  Each card includes an icon, title (H3), and description.
+{%- endcomment -%}
+
+<section class="services" {{ section.shopify_attributes }}>
+  <div class="services__container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="services__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="services__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="services__grid">
+      {%- for block in section.blocks -%}
+        <div class="services__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <div class="services__icon">
+              {{- block.settings.icon | image_url: width: 80 | image_tag: loading: 'lazy', class: 'services__icon-image' -}}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="services__card-title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <p class="services__card-description">{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .services {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-background);
+  }
+
+  .services__container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-margin);
+  }
+
+  /* Section Heading */
+  .services__heading {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-foreground);
+  }
+
+  .services__subheading {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  /* Grid Layout */
+  .services__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* Service Card */
+  .services__card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .services__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Icon */
+  .services__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .services__icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Card Title (H3) */
+  .services__card-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-foreground);
+  }
+
+  /* Card Description */
+  .services__card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    margin-bottom: 0;
+  }
+
+  /* Responsive Grid */
+  @media (min-width: 640px) {
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+    }
+
+    .services__card {
+      padding: var(--spacing-xl);
+    }
+  }
+
+  /* 4 columns when there are 4+ cards */
+  @media (min-width: 1200px) {
+    .services__grid:has(.services__card:nth-child(4)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Services",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What We Do"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Comprehensive Shopify solutions tailored to your business needs"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Recommended: 128x128px, SVG or PNG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Service Name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Brief description of this service and how it helps clients."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "Store Development",
+            "description": "Custom Shopify stores built from the ground up with your brand and goals in mind."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Theme Customization",
+            "description": "Tailored modifications to existing themes to match your unique requirements."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "App Integration",
+            "description": "Seamlessly connect essential apps and tools to enhance your store's functionality."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Ongoing Support",
+            "description": "Reliable maintenance and updates to keep your store running smoothly."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

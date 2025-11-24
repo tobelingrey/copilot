@@ -17,9 +17,53 @@
         "cta_text": "Get Started",
         "cta_link": "/pages/contact"
       }
+    },
+    "services": {
+      "type": "services",
+      "blocks": {
+        "service_1": {
+          "type": "service",
+          "settings": {
+            "title": "Store Development",
+            "description": "Custom Shopify stores built from the ground up with your brand and goals in mind."
+          }
+        },
+        "service_2": {
+          "type": "service",
+          "settings": {
+            "title": "Theme Customization",
+            "description": "Tailored modifications to existing themes to match your unique requirements."
+          }
+        },
+        "service_3": {
+          "type": "service",
+          "settings": {
+            "title": "App Integration",
+            "description": "Seamlessly connect essential apps and tools to enhance your store's functionality."
+          }
+        },
+        "service_4": {
+          "type": "service",
+          "settings": {
+            "title": "Ongoing Support",
+            "description": "Reliable maintenance and updates to keep your store running smoothly."
+          }
+        }
+      },
+      "block_order": [
+        "service_1",
+        "service_2",
+        "service_3",
+        "service_4"
+      ],
+      "settings": {
+        "heading": "What We Do",
+        "subheading": "Comprehensive Shopify solutions tailored to your business needs"
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "services"
   ]
 }
