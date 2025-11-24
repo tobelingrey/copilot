@@ -1,18 +1,79 @@
+{% doc %}
+  Generates global CSS variables from theme settings.
+  These variables should be used throughout the theme for consistency.
+
+  @example
+  {% render 'css-variables' %}
+{% enddoc %}
+
 {% style %}
-  {% # Loads all font variantions with display: swap %}
+  {% # Load primary font variations %}
   {{ settings.type_primary_font | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
 
+  {% # Load heading font variations %}
+  {{ settings.type_heading_font | font_face: font_display: 'swap' }}
+  {{ settings.type_heading_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+
   :root {
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
+    /* Typography */
+    --font-body: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
+    --font-heading: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+    --font-weight-normal: {{ settings.type_primary_font.weight }};
+    --font-weight-bold: {{ settings.type_primary_font.weight | plus: 300 | at_most: 900 }};
+    
+    /* Font Sizes - Mobile First */
+    --font-size-base: {{ settings.font_size_base }}px;
+    --font-size-h1: {{ settings.font_size_h1 | times: 0.7 }}px;
+    --font-size-h2: {{ settings.font_size_h2 | times: 0.75 }}px;
+    --font-size-h3: {{ settings.font_size_h3 | times: 0.8 }}px;
+    --font-size-h4: {{ settings.font_size_h4 | times: 0.85 }}px;
+    
+    /* Layout */
     --page-width: {{ settings.max_page_width }};
     --page-margin: {{ settings.min_page_margin }}px;
+    --content-grid: var(--page-margin) 1fr var(--page-margin);
+    
+    /* Colors - Background & Text */
     --color-background: {{ settings.background_color }};
     --color-foreground: {{ settings.foreground_color }};
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+    
+    /* Colors - Brand */
+    --color-accent: {{ settings.color_accent }};
+    --color-accent-hover: {{ settings.color_accent_hover }};
+    --color-success: {{ settings.color_success }};
+    --color-error: {{ settings.color_error }};
+    
+    /* Colors - UI Elements */
+    --color-border: {{ settings.color_border }};
+    
+    /* Border Radius */
+    --radius-input: {{ settings.input_corner_radius }}px;
+    --radius-button: {{ settings.button_corner_radius }}px;
+    
+    /* Spacing Scale - Based on 8px grid */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    --spacing-2xl: 4rem;    /* 64px */
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+  }
+
+  /* Desktop Font Sizes */
+  @media (min-width: 768px) {
+    :root {
+      --font-size-h1: {{ settings.font_size_h1 }}px;
+      --font-size-h2: {{ settings.font_size_h2 }}px;
+      --font-size-h3: {{ settings.font_size_h3 }}px;
+      --font-size-h4: {{ settings.font_size_h4 }}px;
+    }
   }
 {% endstyle %}

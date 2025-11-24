@@ -11,12 +11,77 @@ body {
   flex-direction: column;
   margin: 0;
   min-height: 100svh;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
 }
 
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
   overflow: hidden;
 }
 
+/* Typography - Semantic Heading Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5, h6 {
+  font-size: var(--font-size-base);
+}
+
+p {
+  text-wrap: pretty;
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Media Elements */
 img,
 picture,
 video,
@@ -27,11 +92,14 @@ svg {
   height: auto;
 }
 
+/* Form Elements */
 input,
 textarea,
 select {
   font: inherit;
-  border-radius: var(--style-border-radius-inputs);
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 select {
@@ -39,14 +107,30 @@ select {
   color: currentcolor;
 }
 
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-button);
+  transition: background-color var(--transition-fast);
+}
+
+button:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Dialog */
 dialog {
   background-color: var(--color-background);
   color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
 }
 
-p {
-  text-wrap: pretty;
-}
+/* Overflow Wrap */
 p,
 h1,
 h2,
@@ -69,13 +153,6 @@ p:empty {
 :is(p, h1, h2, h3, h4, h5, h6):last-child,
 :where(p, h1, h2, h3, h4, h5, h6) + :has(+ :empty:last-child) {
   margin-block-end: 0;
-}
-
-/** Theme styles below */
-body {
-  font-family: var(--font-primary--family);
-  background-color: var(--color-background);
-  color: var(--color-foreground);
 }
 
 /** Section layout utilities */

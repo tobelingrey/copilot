@@ -18,7 +18,70 @@
         "type": "font_picker",
         "id": "type_primary_font",
         "default": "work_sans_n4",
-        "label": "t:general.primary"
+        "label": "t:general.primary",
+        "info": "Used for body text and paragraphs"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "default": "work_sans_n6",
+        "label": "Heading font",
+        "info": "Used for H1, H2, H3, H4, H5, H6"
+      },
+      {
+        "type": "header",
+        "content": "Font Sizes"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Base font size",
+        "default": 16,
+        "info": "Body text size"
+      },
+      {
+        "type": "range",
+        "id": "font_size_h1",
+        "min": 32,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "H1 size",
+        "default": 48
+      },
+      {
+        "type": "range",
+        "id": "font_size_h2",
+        "min": 24,
+        "max": 56,
+        "step": 2,
+        "unit": "px",
+        "label": "H2 size",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "font_size_h3",
+        "min": 20,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "H3 size",
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "font_size_h4",
+        "min": 16,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "label": "H4 size",
+        "default": 22
       }
     ]
   },
@@ -57,6 +120,10 @@
     "name": "t:general.colors",
     "settings": [
       {
+        "type": "header",
+        "content": "Background & Text"
+      },
+      {
         "type": "color",
         "id": "background_color",
         "default": "#FFFFFF",
@@ -66,16 +133,68 @@
         "type": "color",
         "id": "foreground_color",
         "default": "#333333",
-        "label": "t:labels.foreground"
+        "label": "t:labels.foreground",
+        "info": "Primary text color"
+      },
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "default": "#0066FF",
+        "label": "Accent color",
+        "info": "Used for buttons, links, and highlights"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_hover",
+        "default": "#0052CC",
+        "label": "Accent hover color"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "default": "#10B981",
+        "label": "Success color",
+        "info": "Used for positive actions and messages"
+      },
+      {
+        "type": "color",
+        "id": "color_error",
+        "default": "#EF4444",
+        "label": "Error color",
+        "info": "Used for errors and warnings"
+      },
+      {
+        "type": "header",
+        "content": "Border & Radius"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "default": "#E5E7EB",
+        "label": "Border color"
       },
       {
         "type": "range",
         "id": "input_corner_radius",
         "min": 0,
-        "max": 10,
+        "max": 20,
         "step": 1,
         "unit": "px",
         "label": "t:labels.input_corner_radius",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "button_corner_radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Button corner radius",
         "default": 4
       }
     ]
