@@ -1,0 +1,97 @@
+<section id="why" class="why-steadro">
+  <div class="container">
+    <h2 class="section-heading">Why Founders Trust Steadro</h2>
+    <div class="why-content">
+      <div class="why-text">
+        <p class="intro">
+          Steadro combines deep technical experience with practical ecommerce operations. No fluff, no overbuilt solutions—just the structure your brand actually needs.
+        </p>
+      </div>
+      <div class="why-bullets">
+        <ul>
+          <li>10+ years in technical systems, integrations, and ecommerce infrastructure</li>
+          <li>Deep Shopify platform experience</li>
+          <li>Frameworks designed to eliminate chaos, not layer on more tools</li>
+          <li>Calm, senior-level decision-making without VP-level cost</li>
+          <li>Obsession with avoiding tech debt and unnecessary complexity</li>
+        </ul>
+      </div>
+    </div>
+    <div class="testimonials-placeholder">
+      <p>Client Stories Coming Soon</p>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .why-steadro {
+    padding: 4rem 24px;
+    background-color: var(--bg-secondary);
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .why-text .intro {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+  .why-bullets ul {
+    list-style: none;
+    padding: 0;
+  }
+  .why-bullets li {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .why-bullets li:before {
+    content: "✓";
+    color: var(--success);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  .testimonials-placeholder {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .testimonials-placeholder p {
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  @media (max-width: 768px) {
+    .why-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .section-heading {
+      font-size: 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Why Steadro",
+  "settings": []
+}
+{% endschema %}

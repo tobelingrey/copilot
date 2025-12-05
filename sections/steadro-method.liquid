@@ -1,0 +1,95 @@
+<section id="method" class="steadro-method">
+  <div class="container">
+    <h2 class="section-heading">The Steadro Method: Build Once. Scale Cleanly.</h2>
+    <div class="method-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Clarify</h3>
+        <p class="step-description">
+          Audit your platform, architecture, tech debt, workflows, and customer experience. Identify what’s helping—and what’s quietly hurting—your growth.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Stabilize</h3>
+        <p class="step-description">
+          Fix foundational issues, simplify your stack, streamline operations, and establish standards for QA, naming, processes, and reporting.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Elevate</h3>
+        <p class="step-description">
+          Implement scalable systems for lifecycle marketing, CRO, analytics, and long-term platform governance so growth doesn’t break your setup.
+        </p>
+      </div>
+    </div>
+    <div class="method-cta">
+      <a href="#contact" class="btn-primary">Start with the Clarity Audit</a>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .steadro-method {
+    padding: 4rem 24px;
+    background-color: var(--bg-secondary);
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+  }
+  .method-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .step {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .step-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  .step-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .method-cta {
+    margin-top: 2rem;
+  }
+  @media (max-width: 768px) {
+    .method-steps {
+      grid-template-columns: 1fr;
+    }
+    .section-heading {
+      font-size: 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Steadro Method",
+  "settings": []
+}
+{% endschema %}

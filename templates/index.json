@@ -9,12 +9,47 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "problem-framing": {
+      "type": "problem-framing",
+      "settings": {}
+    },
+    "what-steadro-does": {
+      "type": "what-steadro-does",
+      "settings": {}
+    },
+    "steadro-method": {
+      "type": "steadro-method",
+      "settings": {}
+    },
+    "services": {
+      "type": "services",
+      "settings": {}
+    },
+    "why-steadro": {
+      "type": "why-steadro",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero",
+    "problem-framing",
+    "what-steadro-does",
+    "steadro-method",
+    "services",
+    "why-steadro",
+    "faq",
+    "contact"
   ]
 }

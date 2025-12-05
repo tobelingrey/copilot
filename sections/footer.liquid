@@ -1,57 +1,58 @@
-<footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+<footer class="bg-steadro-dark-base mt-24">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <div class="md:col-span-2">
+        <a href="#hero" class="text-2xl font-black text-steadro-dark-text-primary mb-4 block">Steadro</a>
+        <p class="text-steadro-dark-text-secondary leading-relaxed mb-6 max-w-md">
+          Fractional Ecommerce Platform Leadership for Growing Shopify Brands. We stabilize chaos and build scalable foundations.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-10 h-10 bg-steadro-accent-a text-white rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
+            <span class="text-sm">L</span>
+          </a>
+          <a href="#" class="w-10 h-10 bg-steadro-accent-a text-white rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
+            <span class="text-sm">T</span>
+          </a>
+          <a href="#" class="w-10 h-10 bg-steadro-accent-a text-white rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors">
+            <span class="text-sm">I</span>
+          </a>
+        </div>
+      </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+      <div>
+        <h3 class="font-semibold text-steadro-dark-text-primary mb-4">Services</h3>
+        <ul class="space-y-3">
+          <li><a href="#services" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">Clarity Audit</a></li>
+          <li><a href="#services" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">Fractional Leadership</a></li>
+          <li><a href="#services" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">Platform Build</a></li>
+        </ul>
+      </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
+      <div>
+        <h3 class="font-semibold text-steadro-dark-text-primary mb-4">Company</h3>
+        <ul class="space-y-3">
+          <li><a href="#why" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">About</a></li>
+          <li><a href="#contact" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">Contact</a></li>
+          <li><a href="#faq" class="text-steadro-dark-text-secondary hover:text-steadro-accent-a transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-steadro-border pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-steadro-dark-text-secondary text-sm">
+        &copy; {{ 'now' | date: '%Y' }} Steadro. All rights reserved.
+      </p>
+      <p class="text-steadro-text-tertiary text-sm mt-4 md:mt-0">
+        Built for ecommerce leaders who demand clarity.
+      </p>
+    </div>
   </div>
 </footer>
 
-{% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
 
 {% schema %}
 {
-  "name": "t:general.footer",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
-      "default": true
-    }
-  ]
+  "name": "Footer",
+  "settings": []
 }
 {% endschema %}

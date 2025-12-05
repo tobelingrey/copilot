@@ -79,5 +79,116 @@
         "default": 4
       }
     ]
+  },
+  {
+    "name": "Steadro Brand Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "steadro_primary",
+        "label": "Primary Brand Color (Steadro Slate)",
+        "default": "#22303C"
+      },
+      {
+        "type": "color",
+        "id": "steadro_accent_a",
+        "label": "Accent A (Primary CTA - Teal)",
+        "default": "#3ABAB4"
+      },
+      {
+        "type": "color",
+        "id": "steadro_accent_b",
+        "label": "Accent B (Secondary - Amber)",
+        "default": "#F2C94C"
+      },
+      {
+        "type": "header",
+        "content": "Light Mode Colors"
+      },
+      {
+        "type": "color",
+        "id": "steadro_bg_light",
+        "label": "Background Light",
+        "default": "#F7F8FA"
+      },
+      {
+        "type": "color",
+        "id": "steadro_bg_elevated",
+        "label": "Background Elevated (Cards)",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "steadro_border",
+        "label": "Border Color",
+        "default": "#E1E4E8"
+      },
+      {
+        "type": "color",
+        "id": "steadro_text_strong",
+        "label": "Text Strong (Headings)",
+        "default": "#1C1F23"
+      },
+      {
+        "type": "color",
+        "id": "steadro_text_medium",
+        "label": "Text Medium (Body)",
+        "default": "#4A5056"
+      },
+      {
+        "type": "color",
+        "id": "steadro_text_soft",
+        "label": "Text Soft (Labels)",
+        "default": "#7A828A"
+      },
+      {
+        "type": "header",
+        "content": "Dark Section Colors"
+      },
+      {
+        "type": "color",
+        "id": "steadro_dark_base",
+        "label": "Dark Base",
+        "default": "#111418"
+      },
+      {
+        "type": "color",
+        "id": "steadro_dark_elevated",
+        "label": "Dark Elevated",
+        "default": "#1A1D21"
+      },
+      {
+        "type": "color",
+        "id": "steadro_dark_text_primary",
+        "label": "Dark Text Primary",
+        "default": "#E6E9ED"
+      },
+      {
+        "type": "color",
+        "id": "steadro_dark_text_secondary",
+        "label": "Dark Text Secondary",
+        "default": "#A9AFB7"
+      },
+      {
+        "type": "header",
+        "content": "Utility Colors"
+      },
+      {
+        "type": "color",
+        "id": "steadro_success",
+        "label": "Success Color",
+        "default": "#2EB67D"
+      },
+      {
+        "type": "color",
+        "id": "steadro_error",
+        "label": "Error Color",
+        "default": "#E05757"
+      }
+    ]
   }
 ]

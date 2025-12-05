@@ -1,0 +1,104 @@
+<section class="py-24 bg-steadro-bg-dark">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-black text-steadro-text-light mb-6">
+      Growing your brand shouldn't feel like duct-taping systems together.
+    </h2>
+    <p class="text-xl text-steadro-text-light/80 mb-12 leading-relaxed">
+      But for most Shopify brands between $100k–$3M, it does.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">🔗</div>
+        <p class="text-steadro-text-light">Too many apps with overlapping features</p>
+      </div>
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">👤</div>
+        <p class="text-steadro-text-light">No clear owner of the ecommerce platform</p>
+      </div>
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">🔄</div>
+        <p class="text-steadro-text-light">Agencies pushing disconnected projects</p>
+      </div>
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">⚡</div>
+        <p class="text-steadro-text-light">Broken handoffs between systems</p>
+      </div>
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">🎯</div>
+        <p class="text-steadro-text-light">Founder acting as de facto VP</p>
+      </div>
+      <div class="bg-steadro-bg-primary/10 backdrop-blur-sm border border-steadro-text-light/20 rounded-xl p-6">
+        <div class="text-steadro-accent text-3xl mb-4">🚀</div>
+        <p class="text-steadro-text-light">Scaling feels impossible</p>
+      </div>
+    </div>
+
+    <p class="text-2xl font-semibold text-steadro-text-light">
+      If your business feels like it's held together by heroic effort, Steadro is built for you.
+    </p>
+  </div>
+</section>
+
+{% stylesheet %}
+  .problem-framing {
+    padding: 4rem 24px;
+    background-color: var(--bg-secondary);
+    text-align: center;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .problem-framing__heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  .problem-framing__body {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  .problem-framing__bullets {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: left;
+    display: inline-block;
+  }
+  .problem-framing__bullets li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .problem-framing__bullets li:before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  .problem-framing__closing {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .problem-framing__heading {
+      font-size: 1.5rem;
+    }
+    .problem-framing__bullets {
+      text-align: left;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Problem Framing",
+  "settings": []
+}
+{% endschema %}

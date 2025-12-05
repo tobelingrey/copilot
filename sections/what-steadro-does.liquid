@@ -1,0 +1,89 @@
+<section class="what-steadro-does">
+  <div class="container">
+    <h2 class="section-heading">What Steadro Does</h2>
+    <h3 class="section-subheading">Your Fractional Ecommerce Platform Leader</h3>
+    <p class="section-body">
+      Steadro steps in as the experienced operator who owns your ecommerce platform end-to-end and makes sure it can scale cleanly without chaos.
+    </p>
+    <ul class="responsibilities">
+      <li>Stabilizes your Shopify ecosystem</li>
+      <li>Removes tech debt and unnecessary complexity</li>
+      <li>Aligns apps, integrations, and workflows</li>
+      <li>Builds lifecycle marketing foundations (email/SMS)</li>
+      <li>Owns roadmap, prioritization, and technical decisions</li>
+      <li>Ensures your platform can scale cleanly to $5M and beyond</li>
+    </ul>
+    <p class="outcome">
+      The result: a calm, organized, scalable ecommerce operation—finally.
+    </p>
+  </div>
+</section>
+
+{% stylesheet %}
+  .what-steadro-does {
+    padding: 4rem 24px;
+    background-color: var(--bg-primary);
+    text-align: center;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-subheading {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+  .section-body {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  .responsibilities {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: left;
+    display: inline-block;
+  }
+  .responsibilities li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .responsibilities li:before {
+    content: "✓";
+    color: var(--success);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  .outcome {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .section-heading {
+      font-size: 1.5rem;
+    }
+    .responsibilities {
+      text-align: left;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "What Steadro Does",
+  "settings": []
+}
+{% endschema %}
