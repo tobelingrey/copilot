@@ -20,6 +20,34 @@
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
 
+    {% # Tailwind CSS %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'steadro-primary': '{{ settings.steadro_primary }}',
+              'steadro-accent-a': '{{ settings.steadro_accent_a }}',
+              'steadro-accent-b': '{{ settings.steadro_accent_b }}',
+              'steadro-bg-light': '{{ settings.steadro_bg_light }}',
+              'steadro-bg-elevated': '{{ settings.steadro_bg_elevated }}',
+              'steadro-border': '{{ settings.steadro_border }}',
+              'steadro-text-strong': '{{ settings.steadro_text_strong }}',
+              'steadro-text-medium': '{{ settings.steadro_text_medium }}',
+              'steadro-text-soft': '{{ settings.steadro_text_soft }}',
+              'steadro-dark-base': '{{ settings.steadro_dark_base }}',
+              'steadro-dark-elevated': '{{ settings.steadro_dark_elevated }}',
+              'steadro-dark-text-primary': '{{ settings.steadro_dark_text_primary }}',
+              'steadro-dark-text-secondary': '{{ settings.steadro_dark_text_secondary }}',
+              'steadro-success': '{{ settings.steadro_success }}',
+              'steadro-error': '{{ settings.steadro_error }}'
+            }
+          }
+        }
+      }
+    </script>
+
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
 

@@ -1,66 +1,30 @@
-<header>
-  <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2>
+<header class="fixed top-0 w-full bg-steadro-bg-elevated/95 backdrop-blur-sm border-b border-steadro-border z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center">
+      <a href="#hero" class="text-2xl font-black text-steadro-primary">Steadro</a>
+    </div>
 
-  <div class="header__menu">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#hero" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">Home</a>
+      <a href="#method" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">How It Works</a>
+      <a href="#services" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">Services</a>
+      <a href="#why" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">Why Steadro</a>
+      <a href="#faq" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">FAQ</a>
+      <a href="#contact" class="text-steadro-primary hover:text-steadro-accent-a transition-colors font-medium">Contact</a>
+    </nav>
 
-  <div class="header__icons">
-    {% if shop.customer_accounts_enabled %}
-      {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %}
-
-    <a href="{{ routes.cart_url }}">
-      {% if cart.item_count > 0 %}
-        <sup>{{ cart.item_count }}</sup>
-      {% endif %}
-
-      {{ 'icon-cart.svg' | inline_asset_content }}
-    </a>
+    <div class="flex items-center">
+      <a href="#contact" class="bg-steadro-accent-a text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-600 transition-all duration-300 shadow-md hover:shadow-lg">
+        Book Audit
+      </a>
+    </div>
   </div>
 </header>
 
-{% stylesheet %}
-  header {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header a {
-    position: relative;
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  header a sup {
-    position: absolute;
-    left: 100%;
-    overflow: hidden;
-    max-width: var(--page-margin);
-  }
-  header svg {
-    width: 2rem;
-  }
-  header .header__menu,
-  header .header__icons {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
 
 {% schema %}
 {
-  "name": "t:general.header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
-    }
-  ]
+  "name": "Header",
+  "settings": []
 }
 {% endschema %}

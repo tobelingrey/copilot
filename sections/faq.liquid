@@ -1,0 +1,87 @@
+<section id="faq" class="faq">
+  <div class="container">
+    <h2 class="section-heading">Questions, Answered.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 class="faq-question">Are you a developer or an agency?</h3>
+        <p class="faq-answer">
+          No. Steadro is not a traditional agency or a one-off developer. It’s a fractional ecommerce leadership role—I act as the strategic operator who owns the platform and coordinates the specialists.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Do you replace my agency?</h3>
+        <p class="faq-answer">
+          Not necessarily. Steadro makes your agencies more effective by ensuring they’re focused on the right work, in the right order, and aligned to a clear roadmap.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">What size brands is Steadro best for?</h3>
+        <p class="faq-answer">
+          Typically Shopify brands doing between $100k and $3M annually that are ready to move beyond DIY chaos and build real operational structure.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Will you help us choose apps, tools, and integrations?</h3>
+        <p class="faq-answer">
+          Yes. A key part of the work is rationalizing your stack and choosing stable, low-tech-debt solutions that fit your stage and goals.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Do you handle execution or just strategy?</h3>
+        <p class="faq-answer">
+          I own strategy, architecture, and decision-making, and I coordinate the right implementers when needed—developers, agencies, or freelancers. You get senior-level leadership without over-hiring.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .faq {
+    padding: 4rem 24px;
+    background-color: var(--bg-primary);
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+  .faq-answer {
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) {
+    .section-heading {
+      font-size: 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": []
+}
+{% endschema %}
